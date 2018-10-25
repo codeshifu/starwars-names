@@ -1,5 +1,5 @@
 {
-  "name": "starwars-names",
+  "name": "awesome-starwars-names",
   "version": "1.0.0",
   "description": "Get random Star Wars name",
   "main": "src/index.js",
@@ -12,7 +12,8 @@
   },
   "keywords": [
     "random",
-    "star-wars"
+    "star-wars",
+    "awesome"
   ],
   "author": "Olushi Luqman Opemipo <olushilukmon03@gmail.com> (https://codeshifu.github.io/)",
   "license": "MIT",
