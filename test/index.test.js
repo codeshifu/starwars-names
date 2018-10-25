@@ -19,5 +19,11 @@ describe('starwars-names', () => {
       const randomName = starWarsNames.random();
       expect(starWarsNames.all).to.include(randomName);
     });
+
+    it('should return an array of random items if passed a number', () => {
+      const randomItems = starWarsNames.random(2);
+      expect(randomItems).to.have.lengthOf(2);
+      randomItems.forEach(item => expect(starWarsNames.all).to.include(item));
+    });
   });
 });
