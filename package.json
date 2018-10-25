@@ -1,15 +1,18 @@
 {
   "name": "awesome-starwars-names",
-  "version": "1.2.0-beta.0",
+  "version": "0.0.0-development",
   "description": "Get random Star Wars name",
   "main": "src/index.js",
   "scripts": {
+    "commit": "npx git-cz",
     "test": "mocha --recursive",
-    "test:watch": "mocha --recursive -w"
+    "test:watch": "mocha --recursive -w",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codeshifu/starwars-names.git"
+    "url": "https://github.com/codeshifu/starwars-names.git"
   },
   "keywords": [
     "random",
@@ -27,6 +30,14 @@
   },
   "devDependencies": {
     "chai": "4.2.0",
-    "mocha": "5.2.0"
+    "cz-conventional-changelog": "2.1.0",
+    "mocha": "5.2.0",
+    "semantic-release": "^15.10.5",
+    "travis-deploy-once": "^5.0.9"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
