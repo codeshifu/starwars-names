@@ -5,6 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "commit": "npx git-cz",
+    "coverage": "istanbul cover _mocha -- -R spec --recursive",
+    "check-coverage": "istanbul check-coverage --statements 100 --branches 100 --lines 100 --functions 100",
+    "report-coverage": "npm run coverage | codecov",
     "test": "mocha --recursive",
     "test:watch": "mocha --recursive -w",
     "semantic-release": "semantic-release",
@@ -30,8 +33,10 @@
   },
   "devDependencies": {
     "chai": "4.2.0",
+    "codecov": "3.1.0",
     "cz-conventional-changelog": "2.1.0",
     "ghooks": "2.0.4",
+    "istanbul": "0.4.5",
     "mocha": "5.2.0",
     "semantic-release": "^15.10.5",
     "travis-deploy-once": "^5.0.9"
@@ -41,7 +46,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "npm run test && npm run check-coverage"
     }
   }
 }
