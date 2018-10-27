@@ -12,7 +12,7 @@ const getRandomItem = count => {
   return unique(starWarsNames)();
 };
 
-export default {
+module.exports = {
   all: starWarsNames,
   random: getRandomItem
 };
