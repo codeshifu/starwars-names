@@ -1,5 +1,5 @@
-const expect = require('chai').expect;
-const starWarsNames = require('../src/');
+import { expect } from 'chai';
+import starWarsNames from '../src';
 
 const isArrayOfStrings = arr => arr.every(item => typeof item === 'string');
 

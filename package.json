@@ -2,21 +2,28 @@
   "name": "awesome-starwars-names",
   "version": "0.0.0-development",
   "description": "Get random Star Wars name",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "npm run clean && babel src -d dist --copy-files",
+    "check-coverage": "npm run coverage && nyc check-coverage --statements 100 --branches 100 --lines 100 --functions 100",
+    "clean": "rimraf dist",
     "commit": "npx git-cz",
-    "coverage": "istanbul cover _mocha -- -R spec --recursive",
-    "check-coverage": "npm run coverage && istanbul check-coverage --statements 100 --branches 100 --lines 100 --functions 100",
+    "coverage": "nyc npm run test",
+    "prebuild": "npm run clean",
     "report-coverage": "npm run coverage | codecov",
-    "test": "mocha --recursive",
-    "test:watch": "mocha --recursive -w",
     "semantic-release": "semantic-release",
+    "test": "mocha --recursive --require babel-register",
+    "test:watch": "mocha --recursive -w",
     "travis-deploy-once": "travis-deploy-once"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/codeshifu/starwars-names.git"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "keywords": [
     "random",
     "star-wars",
@@ -32,12 +39,16 @@
     "unique-random-array": "1.0.1"
   },
   "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-preset-env": "1.7.0",
+    "babel-register": "6.26.0",
     "chai": "4.2.0",
     "codecov": "3.1.0",
     "cz-conventional-changelog": "2.1.0",
     "ghooks": "2.0.4",
-    "istanbul": "0.4.5",
     "mocha": "5.2.0",
+    "nyc": "13.1.0",
+    "rimraf": "2.6.2",
     "semantic-release": "^15.10.5",
     "travis-deploy-once": "^5.0.9"
   },
